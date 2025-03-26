@@ -1,13 +1,31 @@
 .orientation-tracker {
   text-align: center;
   padding: 20px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+.orientation-visual {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.orientation-svg {
+  width: 200px;
+  height: 200px;
+}
+
 .orientation-data {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .tilt-indicator {
   margin-top: 10px;
   font-weight: bold;
+  display: flex;
+  gap: 15px;
 }

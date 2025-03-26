@@ -1,0 +1,13 @@
+.orientation-tracker {
+  text-align: center;
+  padding: 20px;
+}
+.orientation-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.tilt-indicator {
+  margin-top: 10px;
+  font-weight: bold;
+}

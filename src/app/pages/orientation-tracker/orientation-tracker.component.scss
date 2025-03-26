@@ -1,31 +1,23 @@
-.orientation-tracker {
-  text-align: center;
-  padding: 20px;
-  background: white;
-  border-radius: 15px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.orientation-visual {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-.orientation-svg {
-  width: 200px;
-  height: 200px;
-}
-
-.orientation-data {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.tilt-indicator {
-  margin-top: 10px;
-  font-weight: bold;
-  display: flex;
-  gap: 15px;
-}
+ .game-container {
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+    .game-area {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 200px;
+      height: 200px;
+      margin: auto;
+      border: 3px solid #000;
+      border-radius: 10px;
+      background: #f0f0f0;
+    }
+    .orientation-svg {
+      width: 100%;
+      height: 100%;
+    }
+    .orientation-data {
+      margin-top: 10px;
+      font-weight: bold;
+    }

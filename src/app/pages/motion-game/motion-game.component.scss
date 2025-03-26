@@ -1,9 +1,22 @@
-.motion-game {
+.game-container {
   text-align: center;
-  padding: 20px;
+  font-family: Arial, sans-serif;
 }
-.game-stats {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.game-area {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: auto;
+  border: 3px solid #000;
+  border-radius: 10px;
+  background: #f0f0f0;
+  overflow: hidden;
+}
+.ball {
+  width: 30px;
+  height: 30px;
+  background: red;
+  border-radius: 50%;
+  position: absolute;
+  transition: top 0.1s linear, left 0.1s linear;
 }

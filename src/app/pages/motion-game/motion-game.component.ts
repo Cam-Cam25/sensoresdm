@@ -11,27 +11,29 @@ import { Subscription } from 'rxjs';
 })
 
 export class MotionGameComponent implements OnInit, OnDestroy {
-  gameScore = 0;
-  currentMotion = { x: 0, y: 0, z: 0 };
-  private scoreSubscription: Subscription | null = null;
-  private motionSubscription: Subscription | null = null;
-
-  constructor(private motionGameService: MotionGameService) {}
+  ballX = 50;
+  ballY = 50;
+  private motionHandler: ((event: DeviceMotionEvent) => void) | null = null;
 
   ngOnInit() {
-    this.scoreSubscription = this.motionGameService.getGameScore()
-      .subscribe(score => this.gameScore = score);
+    if (window.DeviceMotionEvent) {
+      this.motionHandler = (event: DeviceMotionEvent) => {
+        const acc = event.accelerationIncludingGravity;
+        if (acc) {
+          this.ballX += acc.x ? acc.x * 1.5 : 0;
+          this.ballY -= acc.y ? acc.y * 1.5 : 0;
 
-    this.motionSubscription = this.motionGameService.getDeviceMotion()
-      .subscribe(motion => this.currentMotion = motion);
-  }
-
-  resetGame() {
-    this.motionGameService.resetGame();
+          this.ballX = Math.max(0, Math.min(90, this.ballX));
+          this.ballY = Math.max(0, Math.min(90, this.ballY));
+        }
+      };
+      window.addEventListener('devicemotion', this.motionHandler);
+    }
   }
 
   ngOnDestroy() {
-    this.scoreSubscription?.unsubscribe();
-    this.motionSubscription?.unsubscribe();
+    if (this.motionHandler) {
+      window.removeEventListener('devicemotion', this.motionHandler);
+    }
   }
 }

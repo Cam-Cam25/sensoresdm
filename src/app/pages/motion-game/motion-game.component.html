@@ -1,12 +1,6 @@
-<div class="motion-game">
-  <h2>Motion Game</h2>
-  <div class="game-stats">
-    <p>Score: {{ gameScore }}</p>
-    <p>Current Motion: 
-      X: {{ currentMotion.x.toFixed(2) }}, 
-      Y: {{ currentMotion.y.toFixed(2) }}, 
-      Z: {{ currentMotion.z.toFixed(2) }}
-    </p>
-    <button (click)="resetGame()">Reset Game</button>
+<div class="game-container">
+  <h2>Equilibrio Game</h2>
+  <div class="game-area">
+    <div class="ball" [ngStyle]="{'top': ballY + '%', 'left': ballX + '%'}"></div>
   </div>
 </div>
